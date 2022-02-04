@@ -1,0 +1,26 @@
+def max_index(list_data,value):  
+        x=sorted([i+1 for i, j in enumerate(list_data) if j == value],reverse=True)
+        try:
+            first=x[0]
+        except:
+            first=0
+        try:
+            second=x[1]
+        except:
+            second=0
+        return first,second
+       
+
+def van_eck_seq(value):
+  z=[0,0]
+  for i in range(3,value+1):
+      first,second=max_index(z,z[-1:][0])
+      #print(first,second)
+      if(second>0):
+          z.append(first-second)
+      else:
+          z.append(0)
+  return z
+ 
+ 
+  van_eck_seq(100)
